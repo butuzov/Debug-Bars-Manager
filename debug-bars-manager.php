@@ -35,14 +35,21 @@ if ( ! function_exists( 'add_action' ) ) {
 
 // ****************************************************************************
 // Usefull Constants we defining beforehand.
+//
+// For a reason plugin developed as a symlink we not useing __DIR__  or __FILE__
+// on initial step defining pathes.
 // ****************************************************************************
 
 if ( ! defined( 'DEBUG_BARS_DIR' ) ) {
-	define( 'DEBUG_BARS_DIR' , WP_PLUGIN_DIR . '/' . basename( __DIR__ ) . '/' );
+	define( 'DEBUG_BARS_DIR' , WP_PLUGIN_DIR . '/' . basename( dirname( $plugin ) ) . '/' );
 }
 
 if ( ! defined( 'DEBUG_BARS_URL' ) ) {
-	define( 'DEBUG_BARS_URL' , WP_PLUGIN_URL . '/' . basename( __DIR__ ) . '/' );
+	define( 'DEBUG_BARS_URL' , WP_PLUGIN_URL . '/' . basename( dirname( $plugin ) ) . '/' );
+}
+
+if ( ! defined( 'DEBUG_BARS_FILE' ) ) {
+	define( 'DEBUG_BARS_FILE' , DEBUG_BARS_DIR . '/' . basename( $plugin ) );
 }
 
 // Used to Get Memory Usage Via WP Admin Bar.
@@ -157,7 +164,7 @@ class Debug_Bars_Manager {
 		$suffix = ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min' );
 
 		// Assets ID based on filename.
-		$name = basename( __FILE__, '.php' );
+		$name = basename( DEBUG_BARS_FILE, '.php' );
 
 		// Including Style.
 		$style_url = plugins_url( 'css/' . $name . $suffix . '.css', DEBUG_BARS_FILE );
@@ -196,7 +203,7 @@ class Debug_Bars_Manager {
 		}
 
 		// Assets ID based on filename.
-		$name = basename( __FILE__, '.php' );
+		$name = basename( DEBUG_BARS_FILE, '.php' );
 
 		// Current User ID.
 		$current_user_id = get_current_user_id();
