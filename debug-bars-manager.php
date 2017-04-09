@@ -64,11 +64,13 @@ if ( ! defined( 'DEBUG_MICROTIME' ) ) {
  */
 class Debug_Bars_Manager {
 
-	const CSS = '1.0';
-	const JS  = '1.0';
 
 	const NAME = 'debug-bars-manager';
+	// `md5 css/sources/debug-bars-manager.css` .
+	protected $css = 'cb7d7ef51f682c10f685f1497360c8e1';
 
+	// `md5 js/sources/debug-bars-manager.js` .
+	protected $js  = '0479dbc98fa77a5e47ce4bf4078b0275';
 
 	/**
 	 * Class Constructor.
@@ -158,12 +160,12 @@ class Debug_Bars_Manager {
 		$name = basename( __FILE__, '.php' );
 
 		// Including Style.
-		$style_url = plugins_url( 'css/' . $name . $suffix . '.css', __FILE__ );
-		wp_enqueue_style( $name , $style_url, array(), false, 'all' );
+		$style_url = plugins_url( 'css/' . $name . $suffix . '.css', DEBUG_BARS_FILE );
+		wp_enqueue_style( $name , $style_url, array(), $this->css, 'all' );
 
 		// Registering Script (include in footer).
-		$script_url = plugins_url( 'js/' . $name . $suffix . '.js', __FILE__ );
-		wp_register_script( $name , $script_url, array( 'jquery', 'underscore' ), false, true );
+		$script_url = plugins_url( 'js/' . $name . $suffix . '.js', DEBUG_BARS_FILE );
+		wp_register_script( $name , $script_url, array( 'jquery', 'underscore' ), $this->js, true );
 	}
 
 
