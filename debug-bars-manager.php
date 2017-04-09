@@ -302,6 +302,12 @@ class Debug_Bars_Manager {
 
 			$debug_plugins = $this->debug_plugins_get( DEBUG_BARS_DIR );
 
+			// Mapping Plugins to Absolute path to avoid issues with a plugns
+			// deployed as symlinks.
+			$debug_plugins = array_map( function( $plugin ) {
+				return rtrim( DEBUG_BARS_DIR, '/' ) . '/' . $plugin;
+			}, $debug_plugins );
+
 			if ( ! empty( $debug_plugins ) ) {
 				foreach ( $debug_plugins as $name => $plugin ) {
 					if ( in_array( $name, $mods, true ) ) {
