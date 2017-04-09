@@ -71,8 +71,6 @@ if ( ! defined( 'DEBUG_MICROTIME' ) ) {
  */
 class Debug_Bars_Manager {
 
-
-	const NAME = 'debug-bars-manager';
 	// `md5 css/sources/debug-bars-manager.css` .
 	protected $css = 'cb7d7ef51f682c10f685f1497360c8e1';
 
