@@ -1,0 +1,46 @@
+#wp-admin-bar-debug-bar input[type="checkbox"] {
+	display: none;
+}
+
+#wp-admin-bar-debug-bar input[type="checkbox"]+label {
+	cursor: pointer;
+}
+
+#wp-admin-bar-debug-bar input[type="checkbox"]+label:hover {
+	color: #fff;
+}
+
+#wp-admin-bar-debug-bar input[type="checkbox"]+label:hover::before {
+	content: "✓";
+}
+
+#wp-admin-bar-debug-bar input[type="checkbox"]+label::before {
+	content: "x";
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+}
+
+#wp-admin-bar-debug-bar input[type="checkbox"]:checked+label {
+	color: #fff;
+}
+
+#wp-admin-bar-debug-bar input[type="checkbox"]:checked+label:hover {
+	color: rgba(240, 245, 250, 0.7) !important;
+}
+
+#wp-admin-bar-debug-bar input[type="checkbox"]:checked+label:hover::before {
+	content: "x" !important;
+}
+
+#wp-admin-bar-debug-bar input[type="checkbox"]:checked+label::before {
+	content: "✓";
+}
+
+#wp-admin-bar-debug-bar ul li .ab-item {
+	line-height: 23px !important;
+}
+
+#wp-admin-bar-debug-bar ul li .ab-item * {
+	line-height: inherit;
+}

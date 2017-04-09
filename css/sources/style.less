@@ -1,0 +1,55 @@
+#wp-admin-bar-debug-bar {
+
+	input[type="checkbox"] {
+		display: none;
+
+		& + label {
+
+			&:hover {
+				color: #fff;
+				&::before {
+					content: "✓";
+				}
+			}
+
+			&::before {
+				content: "x";
+				width: 16px;
+				height:16px;
+				display: inline-block;
+			}
+
+			cursor: pointer;
+		}
+
+		// Some issue here... maybe I understand something wrong.
+		// Anyway structure alerady complicated, so need to simplify it a bit.
+		// maybe with extend rules, maybe to sort properties.
+		// @todo - fix issue
+		// @todo - simplify all.
+		&:checked + label {
+
+			// Dimm it on hover when its enabled
+			&:hover {
+				color: rgba(240,245,250,.7) !important;
+				&::before {
+					content: "x" !important;
+				}
+			}
+
+			&::before {
+				content: "✓";
+			}
+			color: #fff;
+		}
+	}
+
+	// Better line height for list item elements.
+	// 4.7 was a bit ugly.
+	ul li .ab-item {
+		line-height: 23px !important;
+		* {
+			line-height: inherit;
+		}
+	}
+}
