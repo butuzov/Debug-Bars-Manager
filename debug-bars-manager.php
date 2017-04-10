@@ -75,7 +75,7 @@ class Debug_Bars_Manager {
 	protected $css = 'cb7d7ef51f682c10f685f1497360c8e1';
 
 	// `md5 js/sources/debug-bars-manager.js` .
-	protected $js  = '0479dbc98fa77a5e47ce4bf4078b0275';
+	protected $js  = '639e89e7370a3995e6158ef52e2aa384';
 
 	/**
 	 * Class Constructor.

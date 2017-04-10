@@ -1,7 +1,7 @@
 /* Debug Bars Manager */
 (function($) {
 	$(function() {
-		var debugBarsManager = {
+		var $this = {
 
 			// Initial Settings.
 			settings : {
@@ -151,7 +151,6 @@
 			 * Init Proccess
 			 */
 			intialize : function( settings ){
-				$this = this;
 
 				$this.settings  = $.extend(
 						$this.settings , settings );
@@ -163,6 +162,6 @@
 						$this.save_State();
 			}
 		};
-		debugBarsManager.intialize( debugBarsManagerData );
+		return $this.intialize( debugBarsManagerData );
 	});
 }) (jQuery);
