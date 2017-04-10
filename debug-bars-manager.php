@@ -258,7 +258,7 @@ class Debug_Bars_Manager {
 						// Ignore all . starting files/directories, again.
 						if ( substr( $info['basename'], 0, 1 ) == '.' ) {
 							continue;
-						} elseif ( 'php' === $info['extension'] ) {
+						} elseif ( ! empty( $info['extension'] ) && 'php' === $info['extension'] ) {
 							$files[] = sprintf( '%s/%s', $plugin_sub_dir, $file );
 						}
 					}
@@ -278,7 +278,7 @@ class Debug_Bars_Manager {
 			) );
 
 			if ( ! empty( $data['Name'] ) && 'Debug Bars Manager' !== $data['Name'] ) {
-				$plugins[ $data['Name'] ] = $directory . $file;
+				$plugins[ $data['Name'] ] = $file;
 			}
 		}
 
