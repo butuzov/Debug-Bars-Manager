@@ -142,7 +142,7 @@ class Debug_Bars_Manager {
 
 			if ( ! class_exists( 'Debug_Bar_Slow_Actions' ) ) {
 				$footer_hook = is_admin() ? 'admin_footer' :'wp_footer' ;
-				add_action( $footer_hook, array( $this, 'footer_scripts' ), PHP_INT_MAX );
+				add_action( $footer_hook, array( $this, 'footer_scripts' ) );
 			}
 		}
 
