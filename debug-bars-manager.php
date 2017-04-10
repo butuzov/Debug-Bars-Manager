@@ -349,6 +349,15 @@ class Debug_Bars_Manager {
 		// Parent Node.
 		$parent = 'debug-bar';
 
+		$wp_admin_bar->remove_menu( $parent );
+
+		$wp_admin_bar->add_menu( array(
+			'id'     => $parent,
+			'parent' => 'top-secondary',
+			'href'	 => '#',
+			'title'  => apply_filters( 'debug_bar_title', 'Debug'),
+		));
+
 		// Enabled Panels.
 		$enabled = get_user_meta( get_current_user_id(), 'debug_bars_enabled', true );
 		$enabled = ! is_array( $enabled ) ? array() : $enabled;
